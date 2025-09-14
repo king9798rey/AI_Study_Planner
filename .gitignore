@@ -1,0 +1,39 @@
+# =========================
+# Python bytecode / cache
+# =========================
+__pycache__/
+*.py[cod]
+
+# =========================
+# Django stuff
+# =========================
+*.sqlite3          # local database file, don't push
+*.log              # log files created during dev
+*.pot              # translation template files
+*.pyc              # compiled python files (redundant, covered by *.py[cod])
+*.pyo              # optimized bytecode
+*.pyd              # compiled extensions
+db.sqlite3         # common Django default DB file
+
+# =========================
+# Virtual environment
+# =========================
+venv/              # your virtual environment folder
+
+# =========================
+# Environment & secrets
+# =========================
+.env               # environment variables (API keys, DB passwords)
+*.env              # sometimes saved with a different name
+
+# =========================
+# VS Code / IDE
+# =========================
+.vscode/           # VS Code project settings
+.idea/             # PyCharm/IntelliJ project settings
+
+# =========================
+# System files
+# =========================
+.DS_Store          # macOS system file
+Thumbs.db          # Windows system file
