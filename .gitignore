@@ -37,3 +37,6 @@ venv/              # your virtual environment folder
 # =========================
 .DS_Store          # macOS system file
 Thumbs.db          # Windows system file
+venv/
+__pycache__/
+db.sqlite3
