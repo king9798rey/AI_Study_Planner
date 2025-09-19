@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets , permissions
 from django.contrib.auth.models import User
 from .models import StudyPlan, Subject, Task
-from .serializers import StudyPlanSerializer, SubjectSerializer, TaskSerializer , UserSerializer
+from .serializers import StudyPlanSerializer, SubjectSerializer, TaskSerializer , UserSerializer , AnalyticSerializer
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
@@ -54,3 +54,18 @@ class TaskViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save()
 
+class AnalyticViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    A viewset for viewing and editing Subject analytics.
+
+    Attributes:
+        queryset (QuerySet): The set of Subject objects to operate on.
+        serializer_class (Serializer): The serializer class used for Subject analytics.
+        permission_classes (list): List of permission classes that determine access control.
+
+    Requires:
+        User to be authenticated to access the endpoints.
+    """
+    queryset = Subject.objects.all()
+    serializer_class = AnalyticSerializer
+    permission_classes = [permissions.IsAuthenticated]

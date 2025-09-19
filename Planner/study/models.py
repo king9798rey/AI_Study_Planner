@@ -26,13 +26,21 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
     
+    def progress(self):
+        if self.allocated_hours == 0:
+            return 0
+        return (self.completed_hours/self.allocated_hours)*100
+    
 class Task(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name='tasks')
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
-    due_date = models.DateField()
-    is_completed = models.BooleanField(default=False)
+    allocated_time = models.IntegerField(default=0)
+    priority = models.IntegerField(default=1)
+    completed_time = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status = models.CharField(default='in progress')
 
     def __str__(self):
         return self.title
+

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'study',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework.authtoken',
     ]
 
 MIDDLEWARE = [
@@ -128,6 +129,7 @@ RESTFRAMEWORK = {
     'default_authentication_classes': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     )
 }
 
